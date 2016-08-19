@@ -13,7 +13,6 @@ $( document ).ready(function() {
      request.execute(function(response) {
        $("#content").html("<div class='col-lg-12'><h2 class='result-header page-header'>Results</h2></div>");
        var results = response.result;
-       console.log(results.items[0]);
        if (results.items[0] !== undefined) {
          $.each(results.items, function(index, item) {
            $("#content").append("<div class='col-lg-3 col-md-4 col-xs-6 thumb'><p class='video-title center' data-toggle='tooltip' data-placement='top' title='" + item.snippet.title + "'>" + setTitleLength(item.snippet.title) + "</p><a href='#/' onclick='return onSelect(\""+item.id.videoId+"\");' class='thumbnail picture'><img class='img-responsive' src=" + item.snippet.thumbnails.high.url + " alt='' data-toggle='tooltip' data-placement='top' title='" + item.snippet.title + "'></a></div>");
@@ -24,7 +23,7 @@ $( document ).ready(function() {
      })
   });
 
-  $("#player").on('click', function() {
+  $(".player").on('click', function() {
     if ($("#audio-title").html() === "") {
       $("#audio-title").html("<i class='glyphicon glyphicon-volume-off' style='float:left'></i>Player");
       $("#audio-body").html("<b>Search and select a video to play.</b><br><br><button class='btn-primary btn-block' type='button' data-dismiss='modal'>Close</button>");
@@ -37,7 +36,6 @@ $( document ).ready(function() {
 });
 
 function onSelect(videoId) {
-  console.log(videoId);
   $.getJSON("https://www.youtubeinmp3.com/fetch/?format=JSON&bitrate=1&video=http://www.youtube.com/watch?v=" + videoId, function(response) {
     $("#audio-title").html("<i class='glyphicon glyphicon-music' style='float:left'></i>" + response.title);
     $("#audio-body").html("<audio controls><source src=" + response.link + " type='audio/mpeg' /><a href="+ response.link +">"+response.title+"</a>An html5-capable browser is required to play this audio. </audio><br><a href="+ response.link +" download>Download</a><br><br><button class='btn-primary btn-block' type='button' data-dismiss='modal'>Close</button>");
