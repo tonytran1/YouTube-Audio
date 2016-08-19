@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>YouTube Audio</title>
+
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Stylesheet -->
+    <link href="css/stylesheet.css" rel="stylesheet">
+    <link href="css/thumbnail-gallery.css" rel="stylesheet">
+    <link href="css/bootstrap3_player.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+       <div class="navbar-header">
+         <a class="title-header search-button navbar-brand" href="#/"><b>YouTube Audio</b></a>
+         <form action="" class="navbar-form navbar-right">
+          <div class="input-group">
+           <input id="search" type="Search" placeholder="Search..." class="form-control" />
+           <div class="input-group-btn">
+            <button class="search-button btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
+           </div>
+         </div>
+        </form>
+       </div>
+     </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+      <div id="content" class="row">
+      </div>
+    </div>
+
+    <div id="audio-modal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header header-style">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 id="audio-title" class="modal-title"></h4>
+          </div>
+          <div class="modal-content-block">
+            <div id="audio-body" class="modal-body" align="middle" >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap3_player.js"></script>
+    <!-- Custom Javascript -->
+    <script src="js/search.js"></script>
+    <!-- Google API -->
+    <script src="https://apis.google.com/js/client.js?onload=init"></script>
+  </body>
+</html>
