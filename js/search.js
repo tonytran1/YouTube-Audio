@@ -12,7 +12,7 @@ $( document ).ready(function() {
      });
      request.execute(function(response) {
        $("#content").html("<div class='col-lg-12'><h2 class='result-header page-header'>Results</h2></div>");
-       let results = response.result;
+       var results = response.result;
        console.log(results.items[0]);
        if (results.items[0] !== undefined) {
          $.each(results.items, function(index, item) {
@@ -23,6 +23,17 @@ $( document ).ready(function() {
        }
      })
   });
+
+  $("#player").on('click', function() {
+    if ($("#audio-title").html() === "") {
+      $("#audio-title").html("<i class='glyphicon glyphicon-volume-off' style='float:left'></i>Player");
+      $("#audio-body").html("<b>Search and select a video to play.</b><br><br><button class='btn-primary btn-block' type='button' data-dismiss='modal'>Close</button>");
+      $("#audio-modal").modal('show');
+    } else {
+      $("#audio-modal").modal('show');
+    }
+  })
+
 });
 
 function onSelect(videoId) {
@@ -31,7 +42,7 @@ function onSelect(videoId) {
     $("#audio-title").html("<i class='glyphicon glyphicon-music' style='float:left'></i>" + response.title);
     $("#audio-body").html("<audio controls><source src=" + response.link + " type='audio/mpeg' /><a href="+ response.link +">"+response.title+"</a>An html5-capable browser is required to play this audio. </audio><br><a href="+ response.link +" download>Download</a><br><br><button class='btn-primary btn-block' type='button' data-dismiss='modal'>Close</button>");
   })
-  .error(function() {
+  .fail(function() {
     $("#audio-title").html("<i class='glyphicon glyphicon-volume-off' style='float:left'></i>Sorry!");
     $("#audio-body").html("<b>Unfortunately, this video is not supported for stream.<br>Please try the link below to convert your video.</b><br><a href=https://www.youtubeinmp3.com/fetch/?format=JSON&bitrate=1&video=http://www.youtube.com/watch?v=" + videoId +" target='_blank'>Convert</a><br><br><button class='btn-primary btn-block' type='button' data-dismiss='modal'>Close</button>");
   });
@@ -52,13 +63,3 @@ function init() {
       // YouTube API ready
   });
 }
-
-$("#player").click(function() {
-  if ($("#audio-title").html() === "") {
-    $("#audio-title").html("<i class='glyphicon glyphicon-volume-off' style='float:left'></i>Player");
-    $("#audio-body").html("<b>Search and select a video to play.</b><br><br><button class='btn-primary btn-block' type='button' data-dismiss='modal'>Close</button>");
-    $("#audio-modal").modal('show');
-  } else {
-    $("#audio-modal").modal('show');
-  }
-})

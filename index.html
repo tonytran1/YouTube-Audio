@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="expires" content="0">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>YouTube Audio</title>
 
     <!-- Bootstrap -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!-- Custom Stylesheet -->
     <link href="css/stylesheet.css" rel="stylesheet">
@@ -27,22 +28,24 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
        <div class="navbar-header">
+         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+           <a href="#/" id="player" class="nav-link"><i data-toggle='tooltip' data-placement='bottom' title='Audio Player' style="color:white; font-size:1.2em" class="glyphicon glyphicon-collapse-up"></i></a>
+        </button>
          <a class="title-header search-button navbar-brand" href="#/"><b>YouTube Audio</b></a>
-         <form action="" class="navbar-form navbar-right">
+         <form class="navbar-form navbar-right">
           <div class="input-group">
-           <input id="search" type="Search" placeholder="Search" class="form-control" />
+           <input id="search" type="text" placeholder="Search" class="form-control" />
            <div class="input-group-btn">
-            <button class="search-button btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
+            <button class="search-button btn btn-secondary"><span class="glyphicon glyphicon-search"></span></button>
            </div>
           </div>
          </form>
-         <ul class="nav navbar-nav">
+         <ul class="nav navbar-nav collapse navbar-collapse">
            <li class="nav-item">
-             <a id="player" class="nav-link" href="#/"><i data-toggle='tooltip' data-placement='bottom' title='Audio Player' style="font-size:1.3em" class="glyphicon glyphicon-collapse-up"></i></a>
+             <a href="#/" id="player" class="nav-link"><i data-toggle='tooltip' data-placement='bottom' title='Audio Player' style="font-size:1.3em" class="glyphicon glyphicon-collapse-up"></i></a>
            </li>
          </ul>
-       </div>
-       <a id="player" href="#/"></a>
+      </div>
      </div>
     </nav>
 
@@ -67,11 +70,10 @@
         </div>
       </div>
     </div>
-
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <!-- Bootstrap -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="js/bootstrap3_player.js"></script>
     <!-- Custom Javascript -->
     <script src="js/search.js"></script>
