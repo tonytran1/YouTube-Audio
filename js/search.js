@@ -18,7 +18,7 @@ $( document ).ready(function() {
              $("#content").append("<div class='col-lg-3 col-md-4 col-xs-6 thumb'><p class='video-title center'>" + setTitleLength(item.snippet.title) + "</p><a href='#/' onclick='return onSelect(\""+item.id.videoId+"\");' class='thumbnail picture'><img class='img-responsive' src=" + item.snippet.thumbnails.high.url + " alt=''></a></div>");
            });
          } else {
-           $("#content").append("No Results!");
+           $("#content").append("<h3 class='center'>No Results!</h3>");
          }
        })
     });
@@ -32,7 +32,7 @@ function onSelect(videoId) {
   })
   .error(function() {
     $("#audio-title").html("<i class='glyphicon glyphicon-volume-off' style='float:left'></i>Sorry!");
-    $("#audio-body").html("Unfortunately, this video is not supported for stream.<br>Please try the link below to convert your video.<br><a href=https://www.youtubeinmp3.com/fetch/?format=JSON&bitrate=1&video=http://www.youtube.com/watch?v=" + videoId +" target='_blank'>Convert</a><br><br><button class='btn-primary btn-block' type='button' data-dismiss='modal'>Close</button>");
+    $("#audio-body").html("<b>Unfortunately, this video is not supported for stream.<br>Please try the link below to convert your video.</b><br><a href=https://www.youtubeinmp3.com/fetch/?format=JSON&bitrate=1&video=http://www.youtube.com/watch?v=" + videoId +" target='_blank'>Convert</a><br><br><button class='btn-primary btn-block' type='button' data-dismiss='modal'>Close</button>");
   });
   $("#audio-modal").modal('show');
 }
@@ -47,7 +47,17 @@ function setTitleLength(title) {
 
 function init() {
     gapi.client.setApiKey("YouTube API Key");
-    gapi.client.load("youtube", "v3", function() {
-        // YouTube API ready
-    });
+    gapi.client.load("youtube", "v3", function() {});
+}
+
+$("#player").click(function() {
+  if ($("#audio-title").html() === "") {
+    $("#audio-title").html("<i class='glyphicon glyphicon-volume-off' style='float:left'></i>Player");
+    $("#audio-body").html("<b>Please select a video to play.</b><br><br><button class='btn-primary btn-block' type='button' data-dismiss='modal'>Close</button>");
+    $("#audio-modal").modal('show');
+  } else {
+    $("#audio-modal").modal('show');
+  }
+})
+
 }
