@@ -57,3 +57,7 @@
 .picture {
   border: 3px solid black;
 }
+
+.tooltip-inner {
+  text-align: left;
+}
