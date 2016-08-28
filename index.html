@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -13,8 +13,6 @@
 
     <!-- Custom Stylesheet -->
     <link href="css/stylesheet.css" rel="stylesheet">
-    <link href="css/thumbnail-gallery.css" rel="stylesheet">
-    <link href="css/bootstrap3_player.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -28,23 +26,15 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
        <div class="navbar-header">
-         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-           <a href="#/" class="player nav-link"><i data-toggle='tooltip' data-placement='bottom' title='Audio Player' style="color:white; font-size:1.2em" class="glyphicon glyphicon-collapse-up"></i></a>
-        </button>
-         <a class="title-header search-button navbar-brand" href="#/"><b>YouTube Audio</b></a>
+         <a class="player"><img class='navbar-brand logo responsive' src="assets/logo.png" /></a>
          <form class="navbar-form navbar-right">
           <div class="input-group">
            <input id="search" type="text" placeholder="Search" class="form-control" />
            <div class="input-group-btn">
-            <button class="search-button btn btn-secondary"><span class="glyphicon glyphicon-search"></span></button>
+            <button class="search-button btn btn-md btn-block btn-secondary"><span class="glyphicon glyphicon-search"></span></button>
            </div>
           </div>
          </form>
-         <ul class="nav navbar-nav collapse navbar-collapse">
-           <li class="nav-item">
-             <a href="#/" class="player nav-link"><i data-toggle='tooltip' data-placement='bottom' title='Audio Player' style="font-size:1.3em" class="glyphicon glyphicon-collapse-up"></i></a>
-           </li>
-         </ul>
       </div>
      </div>
     </nav>
@@ -55,7 +45,7 @@
       </div>
     </div>
 
-    <div id="audio-modal" class="modal fade" role="dialog">
+    <div id="audio-modal" class="modal" role="dialog">
       <div class="modal-dialog">
         <!-- Modal content-->
         <div class="modal-content">
@@ -63,10 +53,8 @@
             <button type="button" class="close" data-dismiss="modal">&times;</button>
             <h4 id="audio-title" class="modal-title"></h4>
           </div>
-          <div class="modal-content-block">
-            <div id="audio-body" class="modal-body" align="middle" >
-            </div>
-          </div>
+          <div id="audio-body" class="modal-body" align="middle" ></div>
+          <button class="close-btn btn btn-block btn-primary" type='button' data-dismiss='modal'>Close</button>
         </div>
       </div>
     </div>
@@ -74,7 +62,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <!-- Bootstrap -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="js/bootstrap3_player.js"></script>
     <!-- Custom Javascript -->
     <script src="js/search.js"></script>
     <!-- Google API -->
